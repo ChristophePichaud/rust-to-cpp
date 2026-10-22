@@ -25,3 +25,10 @@ output. For end-to-end validation, transpile a representative project and
 compile the result using its intended C++20/C++23 compiler, standard library,
 runtime header, and any required C++ dependencies. C++ compiler support for
 standard-library features can vary between toolchains.
+
+With a C++20 compiler such as GCC, the checked-in fixture outputs can also be
+syntax-checked from the repository root:
+
+```sh
+g++ -std=c++20 -fsyntax-only -Iruntime tests/fixtures/*.cpp
+```

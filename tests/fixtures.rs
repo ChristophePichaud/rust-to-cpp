@@ -18,7 +18,11 @@ fn feature_fixtures_match_generated_cpp() {
     for input in inputs {
         let stem = input.file_stem().unwrap().to_string_lossy();
         let source = fs::read_to_string(&input).expect("read Rust fixture");
-        let output = transpile_str(&source, &stem, &Options::default())
+        let options = Options {
+            namespace: vec![stem.to_string()],
+            ..Options::default()
+        };
+        let output = transpile_str(&source, &stem, &options)
             .unwrap_or_else(|error| panic!("parse {}: {error}", input.display()));
         let expected_header = fs::read_to_string(input.with_extension("h"))
             .unwrap_or_else(|error| panic!("read {}.h: {error}", input.display()));

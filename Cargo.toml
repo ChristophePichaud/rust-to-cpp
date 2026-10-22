@@ -1,0 +1,11 @@
+[package]
+name = "rust-to-cpp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.104"
+proc-macro2 = "1.0.107"
+quote = "1.0.47"
+syn = { version = "2", features = ["full", "extra-traits"] }
+walkdir = "2.5.0"

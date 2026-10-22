@@ -10,6 +10,8 @@ namespace types {
 struct Point;
 struct Pair;
 struct Marker;
+template <typename T>
+struct Container;
 
 struct Point {
     i32 x;
@@ -23,6 +25,16 @@ struct Pair {
 
 struct Marker {
 };
+
+template <typename T>
+struct Container {
+    T value;
+};
+
+template <typename T>
+T identity(T value) {
+    return value;
+}
 
 using Points = std::vector<Point>;
 
